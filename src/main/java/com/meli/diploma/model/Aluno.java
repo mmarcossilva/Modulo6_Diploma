@@ -1,4 +1,4 @@
-package com.meli.diploma;
+package com.meli.diploma.model;
 
 import java.util.List;
 
@@ -27,8 +27,8 @@ public class Aluno {
         this.disciplinas = disciplinas;
     }
 
-    public double getMedia(){
-        return disciplinas.stream().map(Disciplina::getNota).reduce(0.0, Double::sum)/disciplinas.size();
+    public int getMedia(){
+        return disciplinas.stream().map(Disciplina::getNota).reduce(0, Integer::sum)/disciplinas.size();
     }
 
     public String getDiploma() {

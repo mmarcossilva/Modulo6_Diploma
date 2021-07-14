@@ -1,19 +1,19 @@
-package com.meli.diploma;
+package com.meli.diploma.model;
 
 public class Disciplina {
-    private double nota;
+    private int nota;
     private String nome;
 
-    public Disciplina(double nota, String nome) {
+    public Disciplina(int nota, String nome) {
         this.nota = nota;
         this.nome = nome;
     }
 
-    public double getNota() {
+    public int getNota() {
         return nota;
     }
 
-    public void setNota(double nota) {
+    public void setNota(int nota) {
         this.nota = nota;
     }
 
