@@ -1,37 +1,37 @@
 package com.meli.diploma.dto;
 
 public class DiplomaDTO {
-    private String mensagem;
-    private double media;
-    private AlunoDTO aluno;
+    private String message;
+    private double average;
+    private StudentDTO student;
 
-    public DiplomaDTO(String mensagem, double media, AlunoDTO alunoDTO) {
-        this.mensagem = mensagem;
-        this.media = media;
-        this.aluno = alunoDTO;
+    public DiplomaDTO(String message, double average, StudentDTO studentDTO) {
+        this.message = message;
+        this.average = average;
+        this.student = studentDTO;
     }
 
-    public String getMensagem() {
-        return mensagem;
+    public String getMessage() {
+        return message;
     }
 
-    public void setMensagem(String mensagem) {
-        this.mensagem = mensagem;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public double getMedia() {
-        return media;
+    public double getAverage() {
+        return average;
     }
 
-    public void setMedia(double media) {
-        this.media = media;
+    public void setAverage(double average) {
+        this.average = average;
     }
 
-    public AlunoDTO getAluno() {
-        return aluno;
+    public StudentDTO getStudent() {
+        return student;
     }
 
-    public void setAluno(AlunoDTO aluno) {
-        this.aluno = aluno;
+    public void setStudent(StudentDTO student) {
+        this.student = student;
     }
 }

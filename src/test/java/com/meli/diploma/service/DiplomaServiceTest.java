@@ -1,7 +1,7 @@
 package com.meli.diploma.service;
 
-import com.meli.diploma.model.Aluno;
-import com.meli.diploma.model.Disciplina;
+import com.meli.diploma.model.Student;
+import com.meli.diploma.model.Subject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,36 +19,36 @@ public class DiplomaServiceTest {
     }
 
     @Test
-    public void deveSerPossivelValidarNotas(){
-        Disciplina disciplina = new Disciplina(10, "Matematica");
-        Disciplina disciplina2 = new Disciplina(5, "Matematica1");
-        Disciplina disciplina3 = new Disciplina(0, "Matematica2");
-        List<Disciplina> disciplinas = new ArrayList<>();
-        disciplinas.add(disciplina);
-        disciplinas.add(disciplina2);
-        disciplinas.add(disciplina3);
-        Aluno aluno = new Aluno("Mateus Marcos", disciplinas);
-        assertEquals(this.diplomaService.validaNotas(aluno), 5);
+    public void shouldBePossibleValidateNotes(){
+        Subject subject = new Subject(10, "Matematica");
+        Subject subject2 = new Subject(5, "Matematica1");
+        Subject subject3 = new Subject(0, "Matematica2");
+        List<Subject> subjects = new ArrayList<>();
+        subjects.add(subject);
+        subjects.add(subject2);
+        subjects.add(subject3);
+        Student student = new Student("Mateus Marcos", subjects);
+        assertEquals(this.diplomaService.validateNotes(student), 5);
     }
 
     @Test
-    public void deveLevantarExceptionValidarNotas(){
-        Aluno aluno = new Aluno("Mateus Marcos", new ArrayList<>());
+    public void shouldRaiseExceptionValidateNotes(){
+        Student student = new Student("Mateus Marcos", new ArrayList<>());
         assertThrows(
                 RuntimeException.class,
-                () -> this.diplomaService.validaNotas(aluno),
+                () -> this.diplomaService.validateNotes(student),
                 "failed"
         );
     }
 
     @Test
-    public void deveReceberParabensGetMessage(){
+    public void shouldCongratulateGetMessage(){
         String message = "Sua média foi de 9.5 Parabens";
         assertEquals(message, this.diplomaService.getMessage(9.5));
     }
 
     @Test
-    public void naoDeveReceberParabensGetMessage(){
+    public void shouldNotCongratulateGetMessage(){
         String message = "Sua média foi de 7.0";
         assertEquals(message, this.diplomaService.getMessage(7));
     }

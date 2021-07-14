@@ -1,18 +1,18 @@
 package com.meli.diploma.service;
 
-import com.meli.diploma.model.Aluno;
-import com.meli.diploma.model.Disciplina;
+import com.meli.diploma.model.Student;
+import com.meli.diploma.model.Subject;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DiplomaService {
 
 
-    public double validaNotas(Aluno aluno) {
-        if(aluno.getDisciplinas().size() == 0)
+    public double validateNotes(Student student) {
+        if(student.getSubjects().size() == 0)
             throw new RuntimeException();
-        return (double) (aluno.getDisciplinas().stream().map(Disciplina::getNota).reduce(0, Integer::sum))
-                        /aluno.getDisciplinas().size();
+        return (double) (student.getSubjects().stream().map(Subject::getNote).reduce(0, Integer::sum))
+                        / student.getSubjects().size();
     }
 
     public String getMessage(double nota) {
