@@ -16,14 +16,19 @@ public class StudentDTO {
     @Size(min = 8, max = 50)
     private String name;
     @Valid
-    private List<SubjectDTO> subjectDTOs;
+    private List<SubjectDTO> subjects;
 
     public StudentDTO() {
     }
 
     public StudentDTO(Student student){
         this.name = student.getName();
-        this.subjectDTOs = student.getSubjects().stream().map(SubjectDTO::new).collect(Collectors.toList());
+        this.subjects = student.getSubjects().stream().map(SubjectDTO::new).collect(Collectors.toList());
+    }
+
+    public StudentDTO(String name, List<SubjectDTO> subjectDTOs) {
+        this.name = name;
+        this.subjects = subjectDTOs;
     }
 
     public String getName() {
@@ -34,15 +39,15 @@ public class StudentDTO {
         this.name = name;
     }
 
-    public List<SubjectDTO> getSubjectDTOs() {
-        return subjectDTOs;
+    public List<SubjectDTO> getSubjects() {
+        return subjects;
     }
 
-    public void setSubjectDTOs(List<SubjectDTO> subjectDTOs) {
-        this.subjectDTOs = subjectDTOs;
+    public void setSubjects(List<SubjectDTO> subjects) {
+        this.subjects = subjects;
     }
 
     public Student convert(){
-        return new Student(this.name, subjectDTOs.stream().map(SubjectDTO::convert).collect(Collectors.toList()));
+        return new Student(this.name, subjects.stream().map(SubjectDTO::convert).collect(Collectors.toList()));
     }
 }

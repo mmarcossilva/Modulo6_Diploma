@@ -23,6 +23,11 @@ public class SubjectDTO {
         this.subject = subject.getSubject();
     }
 
+    public SubjectDTO(int note, String subject) {
+        this.note = note;
+        this.subject = subject;
+    }
+
     public int getNote() {
         return note;
     }
